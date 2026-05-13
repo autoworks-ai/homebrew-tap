@@ -24,15 +24,19 @@ and offers to import any existing skills into the vault.
 
 ## Updating the formula
 
-This tap is currently maintained by hand. To publish a new AutoVault
-release:
+This tap is currently maintained by hand. The formula builds from the
+AutoVault GitHub source tarball — once the `npm-publish` step in
+[`autoworks-ai/autovault`'s release pipeline](https://github.com/autoworks-ai/autovault/blob/main/.github/workflows/release-please.yml)
+is fixed and `@autoworks-ai/autovault` ships to npmjs.com on every
+release, this tap can switch to wrapping the npm tarball (smaller, no
+build step). Until then:
 
-1. Find the new version on
-   [npmjs.com](https://www.npmjs.com/package/@autoworks-ai/autovault).
-2. Compute the SHA256 of the published tarball:
+1. Find the new release tag at
+   [autoworks-ai/autovault/releases](https://github.com/autoworks-ai/autovault/releases).
+2. Compute the SHA256 of the source tarball:
 
    ```
-   curl -sL https://registry.npmjs.org/@autoworks-ai/autovault/-/autovault-<NEW>.tgz \
+   curl -sL https://github.com/autoworks-ai/autovault/archive/refs/tags/v<NEW>.tar.gz \
      | shasum -a 256
    ```
 
