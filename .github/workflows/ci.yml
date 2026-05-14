@@ -14,10 +14,12 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v6
+      - name: Register tap checkout
+        run: brew tap autoworks-ai/tap "$GITHUB_WORKSPACE"
       - name: Install formula from tap checkout
-        run: brew install --build-from-source ./Formula/autovault.rb
+        run: brew install --build-from-source autoworks-ai/tap/autovault
       - name: Run formula test
-        run: brew test autovault
+        run: brew test autoworks-ai/tap/autovault
       - name: Smoke doctor JSON
         env:
           AUTOVAULT_STORAGE_PATH: ${{ runner.temp }}/vault
