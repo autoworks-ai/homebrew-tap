@@ -21,6 +21,7 @@ class Autovault < Formula
   end
 
   test do
+    ENV["AUTOVAULT_STORAGE_PATH"] = (testpath/"vault").to_s
     output = shell_output("#{bin}/autovault doctor --json")
     assert_match "storagePath", output
   end
