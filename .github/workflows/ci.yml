@@ -1,0 +1,24 @@
+name: Formula CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  autovault:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install formula from tap checkout
+        run: brew install --build-from-source ./Formula/autovault.rb
+      - name: Run formula test
+        run: brew test autovault
+      - name: Smoke doctor JSON
+        env:
+          AUTOVAULT_STORAGE_PATH: ${{ runner.temp }}/vault
+        run: autovault doctor --json

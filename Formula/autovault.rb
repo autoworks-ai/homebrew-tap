@@ -21,7 +21,7 @@ class Autovault < Formula
   end
 
   test do
-    output = shell_output("#{bin}/autovault doctor --json")
+    output = shell_output("AUTOVAULT_STORAGE_PATH=#{testpath}/vault #{bin}/autovault doctor --json")
     assert_match "storagePath", output
   end
 end
