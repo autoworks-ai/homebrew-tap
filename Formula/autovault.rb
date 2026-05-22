@@ -1,8 +1,8 @@
 class Autovault < Formula
   desc "Local-first vault for agent skills with MCP, validation, and signing"
   homepage "https://autovault.dev"
-  url "https://github.com/autoworks-ai/autovault/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "66161be91cdb6a182501b90fd79ccbb4aa7108210d4bed8909d2af64bd8b50f4"
+  url "https://github.com/autoworks-ai/autovault/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "853bfe620cc5d77db9b8ea147ce98e00983fbc0d16f6f4749af122bbf7748649"
   license "MIT"
 
   depends_on "node"
